@@ -7,7 +7,7 @@ public class IdentityMatrix {
 	public IdentityMatrix(int numberOfRows, int numberOfColumns) {
 
 		if (numberOfRows != numberOfColumns) {
-			System.out.println("Sorry, the nunber of rows must to be the same number of columns");
+			System.out.println("Sorry, the number of rows must be equal the number of columns");
 		} else {
 			matrix = new Matrix(numberOfRows, numberOfColumns);
 			for (int i = 0; i < numberOfRows; i++) {
