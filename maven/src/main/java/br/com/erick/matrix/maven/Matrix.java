@@ -16,15 +16,39 @@ public class Matrix {
 	public void setElement(int row, int column, double value) {
 
 		matrix[row][column] = value;
-		
+
 	}
-	
+
 	public int getNumberOfRows() {
 		return numberOfRows;
 	}
 
 	public int getNumberOfColumns() {
 		return numberOfColumns;
+	}
+
+	public int lengthOfRows() {
+
+		return matrix.length;
+
+	}
+
+	public int lengthOfColumns() {
+
+		return matrix[0].length;
+
+	}
+
+	public double[] getRow(int i) {
+		return matrix[i];
+	}
+
+	public void changeRow(int lineInitial, int otherLine) {
+
+		double[] temporary = matrix[lineInitial];
+		matrix[lineInitial] = matrix[otherLine];
+		matrix[otherLine] = temporary;
+
 	}
 
 	public Matrix() {
@@ -44,11 +68,27 @@ public class Matrix {
 					matrix[i][j] = keybord.nextDouble();
 				}
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		System.out.println("\n \n The matrix is: ");
 		printMatrix(matrix);
+	}
+
+	public Matrix(int numberOfRows, int numberOfColumns) {
+		// create a null Matrix
+		matrix = new double[numberOfRows][numberOfColumns];
+
+		for (int i = 0; i < numberOfRows; i++) {
+			for (int j = 0; j < numberOfColumns; j++) {
+				matrix[i][j] = 0;
+			}
+		}
+	}
+
+	public Matrix(double[][] M) {
+		matrix = M;
+//		printMatrix();
 	}
 
 	private void printMatrix(double[][] matrix) {
@@ -59,7 +99,7 @@ public class Matrix {
 			}
 		}
 	}
-	
+
 	protected void printMatrix() {
 		for (int i = 0; i < matrix.length; i++) {
 			System.out.println("\n");
@@ -68,18 +108,5 @@ public class Matrix {
 			}
 		}
 	}
-
-	public Matrix(int numberOfRows, int numberOfColumns) {
-		//create a null Matrix
-		matrix = new double[numberOfRows][numberOfColumns];
-
-		for (int i = 0; i < numberOfRows; i++) {
-			for (int j = 0; j < numberOfColumns; j++) {
-				matrix[i][j] = 0;
-			}
-		}
-	}
-
-	
 
 }
