@@ -88,7 +88,6 @@ public class Matrix {
 
 	public Matrix(double[][] M) {
 		matrix = M;
-//		printMatrix();
 	}
 
 	private void printMatrix(double[][] matrix) {
